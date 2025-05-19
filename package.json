@@ -1,28 +1,36 @@
 {
   "name": "cleaner-vscode-pytest-results",
   "displayName": "cleaner-vscode-pytest-results",
+  "publisher": "UmiKami",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UmiKami/cleaner-vscode-pytest-results"
+  },
   "description": "Removes print statement in vscode-python extension that prints out all arguments for pytest in testing results tab. Specially targetting the removal of the --rootdir output which takes most if not all of the screen height.",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "engines": {
     "vscode": "^1.100.0"
   },
   "categories": [
+    "Testing",
     "Other"
+  ],
+  "keywords": [
+    "pytest",
+    "--rootdir",
+    "testing results"
   ],
   "activationEvents": [
     "onStartupFinished"
   ],
   "main": "./out/extension.js",
   "contributes": {
-    "commands": [
-      {
-        "command": "cleaner-vscode-pytest-results.helloWorld",
-        "title": "Hello World"
-      }
-    ]
+    "commands": []
   },
   "scripts": {
     "vscode:prepublish": "pnpm run compile",
+    "package": "pnpm vsce package --no-dependencies",
+    "publish": "pnpm vsce publish --no-dependencies",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "pretest": "pnpm run compile && pnpm run lint",
